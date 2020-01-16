@@ -53,19 +53,19 @@ Parte 4 - Execução da Função Passo a Passo
     - Ao chegar na função é feita a verificação de dados, para saber se eles estão preenchidos e corretamente.
     - Feita a verificação da formatação do Período Escolhido, para saber se o relatório é Mensal ou Anual, e definir o período de tempo a ser buscado.
     - Abaixo disso, é feita a definição de um "Função Interna", usada para formatar os dados dos Centros de Custo de Receitas e Despesas. Isso é feito pois os dados estão estruturados do mesmo modo, com a diferença sendo apenas os nomes dos campos.
- - Feita a busca pelas configurações de DRE
- - Como o vinculo entre Centros de Custos é feito diretamente na Tabela de Centros de Custos (Em termos mais leigos, é como se cada Centro de Custos apontasse apenas diretamente pro seu "Pai"), e apenas os IDs (identificadores) dos Centros de Custos nível 1 são salvos nas configurações de DRE, foi necessário montar uma Query (Query seria o modo de fazer a busca pelas informações) recursiva, que buscava pelos "Filhos" recursivamente.
- - Infelizmente pela falta de tempo, foi feita uma busca por todos os Centros de Custos cadastrados e depois a reestruturação dos dados, combinando assim os pais com os filhos (Em cada posição "Pai", existe uma posição "Filhos", e dentro dela as informações de seus filhos e assim por diante)
- - Após buscar todos os Centros de Custos, os IDs deles são extraídos e armazenados em uma variável.
- - Feita a busca pelas Receitas com os Centros de Custos Cadastrados (Nível de DRE 1).
- - Feita a busca pelas Despesas com os Centros de Custos Cadastrados (Nível de DRE 2, 3, 4 e 5).
- - Feito um loop passando por cada nível do DRE
- - Para cada nível de DRE, é feita a verificação se é um Nível Completo ou um Sub-Nível
- - Caso seja um Nível Completo, é feita a verificação de qual o formato de relatório desejado (PDF, Excel ou Visualização Online) e iniciada a montagem dos dados para serem enviados ao FrontEnd
- - É utilizada a função "organizaTabela", uma função recursiva que formata dos dados do relatório no formato de visualização desejado
- - Depois que os dados são retornados da função "organizaTabela", é feito o calculo do valor daquele nível
- - Caso seja um Sub-Nível, é feito o calculo o calculo de seu valor
- - Após essa primeira formatação, é feita a formatação seguinte transformando os valores em R$ e adaptando ao tipo de visualização desejado
+    - Feita a busca pelas configurações de DRE
+    - Como o vinculo entre Centros de Custos é feito diretamente na Tabela de Centros de Custos (Em termos mais leigos, é como se cada Centro de Custos apontasse apenas diretamente pro seu "Pai"), e apenas os IDs (identificadores) dos Centros de Custos nível 1 são salvos nas configurações de DRE, foi necessário montar uma Query (Query seria o modo de fazer a busca pelas informações) recursiva, que buscava pelos "Filhos" recursivamente.
+    - Infelizmente pela falta de tempo, foi feita uma busca por todos os Centros de Custos cadastrados e depois a reestruturação dos dados, combinando assim os pais com os filhos (Em cada posição "Pai", existe uma posição "Filhos", e dentro dela as informações de seus filhos e assim por diante)
+    - Após buscar todos os Centros de Custos, os IDs deles são extraídos e armazenados em uma variável.
+    - Feita a busca pelas Receitas com os Centros de Custos Cadastrados (Nível de DRE 1).
+    - Feita a busca pelas Despesas com os Centros de Custos Cadastrados (Nível de DRE 2, 3, 4 e 5).
+    - Feito um loop passando por cada nível do DRE
+    - Para cada nível de DRE, é feita a verificação se é um Nível Completo ou um Sub-Nível
+    - Caso seja um Nível Completo, é feita a verificação de qual o formato de relatório desejado (PDF, Excel ou Visualização Online) e iniciada a montagem dos dados para serem enviados ao FrontEnd
+    - É utilizada a função "organizaTabela", uma função recursiva que formata dos dados do relatório no formato de visualização desejado
+    - Depois que os dados são retornados da função "organizaTabela", é feito o calculo do valor daquele nível
+    - Caso seja um Sub-Nível, é feito o calculo o calculo de seu valor
+    - Após essa primeira formatação, é feita a formatação seguinte transformando os valores em R$ e adaptando ao tipo de visualização desejado
 
 Parte 5 - Exibição
 
